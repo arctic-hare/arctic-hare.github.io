@@ -1,96 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>test</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<style>
-    #static, #dynamic, .canvas {
-        width: 730px;
-        height: 730px;
-    }
-    #static, #dynamic {
-        position: absolute;
-    }
-    .canvas {
-        position: relative;
-        border: 1px solid #8d8d8d;
-    }
-
-</style>
-<div id="app" class="container py-5">
-    <div class="alert alert-success">
-        <div>Data from input file: </div>
-        {{ join(testCoords) }}
+<div class="container">
+  <div class="row py-5 align-items-stretch">
+    <div class="col-12 col-md-6">
+      <div class="alert alert-primary h-100" role="alert">
+        Todo-list на react, react-redux <br>
+        Примитивный Task Manager использующий внешнее api
+        Функционал: Создание, Редактирование, Удаление <br>
+        <a href="https://arctic-hare.github.io/todo-list" class="alert-link">Ссылка на gh-page</a><br>
+        <a href="https://github.com/arctic-hare/todo-list" class="alert-link">Репозиторий на git-hub</a>
+      </div>
     </div>
-    <div v-if="userCoordsListOutput">
-        <div v-if="userCoordsListOutput.length" class="alert alert-info">
-            <div>Data from user: </div>
-            {{ join(userCoordsListOutput) }}
-        </div>
-        <div v-else class="alert alert-danger">
-            <div>Data fom user: </div>
-            Нет введено корректных данных
-        </div>
+    <div class="col-12 col-md-6">
+      <div class="alert alert-secondary h-100" role="alert">
+        Сортировка и отрисовка введенных координат на vue, canvas<br><br>
+        Необходимо упорядочить набор точек в декартовой системе координат в таком порядке,
+        чтобы отрезки, соединяющие эти точки последовательно, не пересекались.
+        <br>
+        <a href="https://arctic-hare.github.io/test-coordinate" class="alert-link">Ссылка на gh-page</a>   <br>
+        <a href="https://github.com/arctic-hare/test-coordinate" class="alert-link">Репозиторий на git-hub</a>.
+      </div>
     </div>
-
-
-    <div class="row mt-4">
-        <div class="col-4 ">
-            <button type="button"
-                    class="btn btn-success"
-                    @click="showForm"
-            >задать входные данные</button>
-            <div v-if="isShowEnterData" >
-                <div v-for="(item, i) in userCoordsListEnter"
-                >
-                    <div class="d-flex">
-                        <div class="form-group">
-                            <label :for="'item_' + i">Kоордината X</label>
-                            <input type="number"
-                                   :id="'item_x_' + i"
-                                   v-model="item.x"
-                                   class="form-control"
-                            >
-                        </div>
-                        <div class="form-group ml-3">
-                            <label :for="'item_' + i">Kоордината Y</label>
-                            <input type="number"
-                                   :id="'item_y_' + i"
-                                   v-model="item.y"
-                                   class="form-control"
-                            >
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex">
-                    <button type="button"
-                            class="btn btn-success"
-                            @click="addItemForm"
-                    >добавить точку</button>
-                    <button type="button"
-                            class="btn btn-dark ml-auto"
-                            @click="processingForm"
-                    >обработать</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-8">
-            <div class="canvas">
-                <canvas id="static" height="760" width="760"></canvas>
-                <canvas id="dynamic" height="760" width="760"></canvas>
-            </div>
-        </div>
-    </div>
-
+  </div>
 </div>
-
-<script src="app.js"></script>
 </body>
 </html>
